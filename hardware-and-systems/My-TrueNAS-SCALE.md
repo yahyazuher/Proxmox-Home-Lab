@@ -52,17 +52,17 @@ Here is the exact breakdown of the applications running on this node as shown in
 #### 🔹 radarr
 *   **Role:** Automated Movie Manager.
 *   **Function:** Monitors and tracks movie releases. It automatically communicates with indexers to find files, pushes them to the download client, and moves them to the permanent ZFS media storage once done.
-*   **Access:** Dual-accessible (Securely via Cloudflare Tunnel for remote requests, and via Local IP/Port at home).
+*   **Access:** Dual-accessible (Securely via Cloudflare Tunnel for remote requests `example1.yahyaz.dev`, and via Local IP/Port at home).
 
 #### 🔹 sonarr
 *   **Role:** Automated TV Show Manager.
 *   **Function:** Functions exactly like Radarr but is custom-tailored for episodic content, automatically tracking, fetching, and archiving TV series seasons.
-*   **Access:** Dual-accessible (Securely via Cloudflare Tunnel for remote requests, and via Local IP/Port at home).
+*   **Access:** Dual-accessible (Securely via Cloudflare Tunnel for remote requests `example2.yahyaz.dev`, and via Local IP/Port at home).
 
 #### 🔹 qbittorrent
 *   **Role:** High-Performance Download Client.
-*   **Function:** Receives `.torrent` configurations and download commands from Radarr/Sonarr. It handles the raw file downloading and writes temporary files into an isolated dataset.
-*   **Access:** Dual-accessible (Securely via Cloudflare Tunnel for remote monitoring, and via Local IP/Port at home).
+*   **Function:** Receives `torrent` configurations and download commands from Radarr/Sonarr. It handles the raw file downloading and writes temporary files into an isolated dataset.
+*   **Access:** Dual-accessible (Securely via Cloudflare Tunnel for remote monitoring `example3.yahyaz.dev`, and via Local IP/Port at home).
 
 #### 🔹 prowlarr
 *   **Role:** Indexer Manager.
