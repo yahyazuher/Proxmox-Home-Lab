@@ -93,7 +93,7 @@ graph TD
     end
 
     subgraph Domains [Network Access]
-        Local["Local Only Access<br/>IP: 192.168.0.xxx"]
+        Local["LAN & WAN Access<br/>IP: 192.168.0.xxx | example.yahyaz.dev"]
         Public["Global Public Access<br/>me.yahyaz.dev | hepatiq.site"]
     end
 
