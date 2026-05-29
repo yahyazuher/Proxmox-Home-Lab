@@ -66,3 +66,51 @@ This lab implements a dual-layer security model to ensure that production servic
 * **Connection Method:** Requires connection to the **TP-Link 1Gbit Switch** or the local secure Wi-Fi.
 * **Secured Services:** * **TrueNAS Dashboard:** Storage management and ZFS administration.
     * **Jellyfin:** High-bandwidth local media streaming.
+
+---
+## System Architecture & Virtualization Mapping
+```mermaid
+graph TD
+    %% Title Section
+    title[<b>Infrastructure Hierarchy & Service Mapping</b>]
+    style title fill:none,stroke:none,color:#e67e22,font-size:20px
+
+    %% Nodes Definition
+    Hardware["Bare-Metal Server PC<br/>(Ryzen 5 2600 | 16GB RAM | GTX 1650)"]
+    Proxmox["PROXMOX VE<br/>"]
+    
+    subgraph VMs [Virtual Machines Layer]
+        VM1["VM 1: TrueNAS SCALE"]
+        VM2["VM 2: Ubuntu Server"]
+    end
+
+    subgraph Goals1 [TrueNAS Objectives]
+        G1["• ZFS Storage Management<br/>• Private Cloud<br/>• Media Automation"]
+    end
+
+    subgraph Goals2 [Ubuntu Objectives]
+        G2["• Production Web Hosting<br/>• AI Inference Execution<br/>• Live Deployment"]
+    end
+
+    subgraph Domains [Network Access]
+        Local["Local Only Access<br/>IP: 192.168.0.xxx"]
+        Public["Global Public Access<br/>me.yahyaz.dev | hepatiq.site"]
+    end
+
+    %% Connections
+    Hardware ==> Proxmox
+    Proxmox --> VM1
+    Proxmox --> VM2
+    
+    VM1 --- G1
+    VM2 --- G2
+    
+    G1 --> Local
+    G2 --> Public
+
+    %% Styling for clarity
+    style Hardware fill:#2d3436,stroke:#dfe6e9,color:#fff
+    style Proxmox fill:#e67e22,stroke:#d35400,color:#fff
+    style VM1 fill:#2980b9,stroke:#2471a3,color:#fff
+    style VM2 fill:#8e44ad,stroke:#713d84,color:#fff
+    style Domains fill:#27ae60,stroke:#1e8449,color:#fff
